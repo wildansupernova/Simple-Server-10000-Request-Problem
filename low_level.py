@@ -2,6 +2,11 @@ import signal
 import pyuv
 import json
 import sys
+import chardet
+
+from file_server import CachedFileServer
+
+file_server = CachedFileServer()
 
 with open('resource/config.json') as f:
     config = json.load(f)
@@ -13,9 +18,18 @@ if (len(sys.argv) < 2):
 file_type = sys.argv[1]
 
 def on_read(client, data, error):
-    f = open(config[file_type], "r")
-    content = str.encode(f.read())
-    client.write(content)
+    content = file_server.read(config[file_type])
+    response = "HTTP/1.1 200 OK\n" \
+        + "Date: Thu, 19 Feb 2009 12:27:04 GMT\n" \
+        + "Server: Apache/2.2.3\n" \
+        + "Last-Modified: Wed, 18 Jun 2003 16:05:58 GMT\n" \
+        + "Content-Type: text/html\n" \
+        + f"Content-Length: {len(content)}\n" \
+        + "Connection: close\n" \
+        + "\n"
+    response = str.encode(response) + content
+
+    client.write(response)
     client.close()
     clients.remove(client)
     return
@@ -26,7 +40,6 @@ def on_connection(server, error):
     clients.append(client)
     client.start_read(on_read)
     ip, port = client.getpeername()
-    print("{}:{} connected".format(ip,port))
 
 
 def signal_cb(handle, signum):
