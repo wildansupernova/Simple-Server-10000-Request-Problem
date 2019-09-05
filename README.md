@@ -1,5 +1,12 @@
 # Simple-Server-10000-Request-Problem
 
+## Team Member
+
+Thareq Muhammad Yusuf Hasnul Aziz - 13516004
+Wildan Dicky Alnatara - 13516012
+Adylan Roaffa Ilmy - 13516016
+Putu Gery Wahyu Nugraha - 13516100
+
 ## Benchmarking Tools
 #### ApacheBench
 
