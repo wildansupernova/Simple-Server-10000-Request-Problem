@@ -1,5 +1,5 @@
 {
     "FILE_20_KB": "resource/test20kb.html",
     "FILE_500_B": "resource/test500bytes.html",
-    "PORT_APP": 8888
+    "PORT_APP": 8000
 }
