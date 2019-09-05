@@ -294,15 +294,181 @@ Benchmark Result
 
 ### Low Level Server
 
+Using Python3 with PyUV version 1.4.0
+
 #### Installation
 
+install PyUV package
+
+    pip install pyuv
+
+#### How to Run
+
+    python src/low_level.py [File Type]
+
 #### Result
+Command for 500bytes html files
+
+Run and Benchmark Command
+
+    python src/low_level.py FILE_500_B
+    ab -n 10000 -c 10000 http://127.0.0.1:8000/
+
+Benchmark Result
+
+    This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+    Benchmarking 127.0.0.1 (be patient)
+    Completed 1000 requests
+    Completed 2000 requests
+    Completed 3000 requests
+    Completed 4000 requests
+    Completed 5000 requests
+    Completed 6000 requests
+    Completed 7000 requests
+    Completed 8000 requests
+    Completed 9000 requests
+    Completed 10000 requests
+    Finished 10000 requests
+
+
+    Server Software:        Apache/2.2.3
+    Server Hostname:        127.0.0.1
+    Server Port:            8000
+
+    Document Path:          /
+    Document Length:        488 bytes
+
+    Concurrency Level:      10000
+    Time taken for tests:   0.768 seconds
+    Complete requests:      10000
+    Failed requests:        0
+    Total transferred:      6690000 bytes
+    HTML transferred:       4880000 bytes
+    Requests per second:    13014.29 [#/sec] (mean)
+    Time per request:       768.386 [ms] (mean)
+    Time per request:       0.077 [ms] (mean, across all concurrent requests)
+    Transfer rate:          8502.50 [Kbytes/sec] received
+
+    Connection Times (ms)
+                min  mean[+/-sd] median   max
+    Connect:      150  248  63.7    242     416
+    Processing:   169  182  12.7    184     208
+    Waiting:      108  158  29.3    164     207
+    Total:        358  430  53.0    423     586
+
+    Percentage of the requests served within a certain time (ms)
+    50%    423
+    66%    440
+    75%    456
+    80%    466
+    90%    510
+    95%    547
+    98%    570
+    99%    577
+    100%    586 (longest request)
+
+Command for 20kb html files
+
+Run and Benchmark Command
+
+    python src/low_level.py FILE_20_KB
+    ab -n 10000 -c 10000 http://127.0.0.1:8000/
+
+Benchmark Result
+
+    This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+    Benchmarking 127.0.0.1 (be patient)
+    Completed 1000 requests
+    Completed 2000 requests
+    Completed 3000 requests
+    Completed 4000 requests
+    Completed 5000 requests
+    Completed 6000 requests
+    Completed 7000 requests
+    Completed 8000 requests
+    Completed 9000 requests
+    Completed 10000 requests
+    Finished 10000 requests
+
+
+    Server Software:        Apache/2.2.3
+    Server Hostname:        127.0.0.1
+    Server Port:            8000
+
+    Document Path:          /
+    Document Length:        20386 bytes
+
+    Concurrency Level:      10000
+    Time taken for tests:   0.952 seconds
+    Complete requests:      10000
+    Failed requests:        0
+    Total transferred:      205690000 bytes
+    HTML transferred:       203860000 bytes
+    Requests per second:    10500.04 [#/sec] (mean)
+    Time per request:       952.377 [ms] (mean)
+    Time per request:       0.095 [ms] (mean, across all concurrent requests)
+    Transfer rate:          210913.47 [Kbytes/sec] received
+
+    Connection Times (ms)
+                min  mean[+/-sd] median   max
+    Connect:      152  256  65.5    253     429
+    Processing:   188  242  58.6    217     378
+    Waiting:      126  220  78.3    205     378
+    Total:        461  499  32.0    489     619
+
+    Percentage of the requests served within a certain time (ms)
+    50%    489
+    66%    504
+    75%    512
+    80%    518
+    90%    536
+    95%    573
+    98%    600
+    99%    609
+    100%    619 (longest request)
+
 
 ### High Level Server
 
+Using Tornado version 6.0.3 Package and Python3
+
 #### Installation
 
+install PyUV package
+
+    pip install Tornado
+
+#### How to Run
+
+    python src/Tornado.py [File Type]
+
 #### Result
+Command for 500 bytes html files
+
+Run and Benchmark Command
+
+    python src/low_level.py FILE_500_B
+    ab -n 10000 -c 10000 http://127.0.0.1:8000/
+
+Benchmark Result
+
+Command for 20 kb html files
+
+Run and Benchmark Command
+
+    python src/low_level.py FILE_20_KB
+    ab -n 10000 -c 10000 http://127.0.0.1:8000/
+
+Benchmark Result
+
+
+
 
 
 

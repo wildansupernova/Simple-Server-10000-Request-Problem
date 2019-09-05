@@ -2,6 +2,7 @@ import tornado.ioloop
 import tornado.web
 from tornado import gen
 import json
+import sys
 from file_server import CachedFileServer
 
 
@@ -11,12 +12,13 @@ with open('resource/config.json') as f:
   config = json.load(f)
 
 
+file_type = sys.argv[1]
 
 class MainHandler(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         # f = open(config['FILE_20_KB'], "r")
-        yield self.write(file_server_ins.read(config['FILE_20_KB']))
+        yield self.write(file_server_ins.read(config[file_type]))
         # f.close()
 
 def make_app():
