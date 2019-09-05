@@ -1,6 +1,11 @@
 import tornado.ioloop
 import tornado.web
+from tornado import gen
 import json
+from file_server import CachedFileServer
+
+
+file_server_ins = CachedFileServer()
 
 with open('resource/config.json') as f:
   config = json.load(f)
@@ -8,10 +13,11 @@ with open('resource/config.json') as f:
 
 
 class MainHandler(tornado.web.RequestHandler):
+    @gen.coroutine
     def get(self):
-        f = open(config['FILE_20_KB'], "r")
-        self.write(f.read())
-        f.close()
+        # f = open(config['FILE_20_KB'], "r")
+        yield self.write(file_server_ins.read(config['FILE_20_KB']))
+        # f.close()
 
 def make_app():
     return tornado.web.Application([
