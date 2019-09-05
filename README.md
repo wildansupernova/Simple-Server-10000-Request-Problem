@@ -458,6 +458,36 @@ Run and Benchmark Command
 
 Benchmark Result
 
+    This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+    Benchmarking 127.0.0.1 (be patient)
+    Completed 1000 requests
+    Completed 2000 requests
+    Completed 3000 requests
+    Completed 4000 requests
+    Completed 5000 requests
+    apr_pollset_poll: The timeout specified has expired (70007)
+    Total of 5433 requests completed
+    root@thareq:~# ab -n 10000 -c 10000 -s 1000 http://127.0.0.1:8000/
+    This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+    Benchmarking 127.0.0.1 (be patient)
+    Completed 1000 requests
+    Completed 2000 requests
+    Completed 3000 requests
+    Completed 4000 requests
+    Completed 5000 requests
+    Completed 6000 requests
+    Completed 7000 requests
+    Completed 8000 requests
+    Completed 9000 requests
+    apr_socket_recv: Connection reset by peer (104)
+    Total of 9687 requests completed
+
 Command for 20 kb html files
 
 Run and Benchmark Command
@@ -466,6 +496,36 @@ Run and Benchmark Command
     ab -n 10000 -c 10000 http://127.0.0.1:8000/
 
 Benchmark Result
+
+    This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+    Benchmarking 127.0.0.1 (be patient)
+    Completed 1000 requests
+    Completed 2000 requests
+    Completed 3000 requests
+    Completed 4000 requests
+    Completed 5000 requests
+    apr_pollset_poll: The timeout specified has expired (70007)
+    Total of 5433 requests completed
+    root@thareq:~# ab -n 10000 -c 10000 -s 1000 http://127.0.0.1:8000/
+    This is ApacheBench, Version 2.3 <$Revision: 1807734 $>
+    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+    Licensed to The Apache Software Foundation, http://www.apache.org/
+
+    Benchmarking 127.0.0.1 (be patient)
+    Completed 1000 requests
+    Completed 2000 requests
+    Completed 3000 requests
+    Completed 4000 requests
+    Completed 5000 requests
+    Completed 6000 requests
+    Completed 7000 requests
+    Completed 8000 requests
+    Completed 9000 requests
+    apr_socket_recv: Connection reset by peer (104)
+    Total of 9687 requests completed
 
 
 
